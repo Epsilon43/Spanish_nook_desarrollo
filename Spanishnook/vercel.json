@@ -1,36 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.mjs",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "dist/ssr/**"
-      }
-    }
-  ],
   "rewrites": [
-    {
-      "source": "/client/(.*)",
-      "destination": "/dist/ssr/client/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/api/index.mjs"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vitals.vercel-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https: wss:; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self';"
-        }
-      ]
-    }
-  ],
-  "buildCommand": "npm run build:ssr",
-  "outputDirectory": "dist/ssr",
-  "installCommand": "npm ci"
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
