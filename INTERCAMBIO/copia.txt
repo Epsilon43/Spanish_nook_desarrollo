@@ -1,0 +1,21 @@
+<div class="row full-width contenedor-imagen">
+      <div  v-intersect="onImgIntersect" 
+        class="col-12 flex justify-center q-mb-lg contenedor-imagen"
+        style="min-height: 250px; position: relative;" >
+          <transition name="slide-fade-left">
+            <div v-if="showAnimatedImg" 
+              class="contenedor-imagen">
+                <img  src="/img/animacion4.png"
+                  class="img-animada move-lr"
+                  style="width: 100%; height: auto; display: block;"
+                  @animationend="mostrarBocadillo = true"
+                />
+                  <transition name="fade">
+                    <div v-if="mostrarBocadillo" class="bocadillo-texto-izquierda">
+                      <strong>Recuerda hacer tu test de nivel</strong>
+                    </div>
+                  </transition>
+            </div>
+          </transition>
+      </div>
+    </div>
